@@ -9,7 +9,7 @@ function waitFor(time = 2000) {
         setTimeout(() => {
             console.log("Inside setTimeout");
             resolve("Inside Resolve");
-        });
+        }, time);
     });
 }
 
@@ -23,17 +23,17 @@ function generateNumbers(min, max, time = undefined) {
 
     return new Promise((resolve) => {
         const factor = max - min * 1;
-        const aleatorio = parseInt(Math.random() * factor) + 1;
+        const random = parseInt(Math.random() * factor) + min;
 
         if (time) {
             setTimeout(() => {
-                resolve(aleatorio);
+                resolve(random);
             }, time);
 
             return;
         }
 
-        resolve(aleatorio);
+        resolve(random);
     });
 }
 generateNumbers(10, 30).then(console.log);
