@@ -32,4 +32,6 @@ fn.readFolder(fullPath)
     .then(fn.joinContent)
     .then(fn.splitBy(" "))
     .then(fn.removeEmptyElements)
+    .then(fn.groupWords)
+    .then(fn.orderByNumbers('qtd', 'desc'))
     .then(console.log);
